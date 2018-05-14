@@ -1,9 +1,10 @@
 <template>
     <div>
-        <h2>Add your post here</h2>
+        <h4>Add your post here</h4>
         <div class="container">
-            <div class="row">
+           <div class="row">
                 <form @submit.prevent="addPost">
+          <h2>{{ this.$route.params.id ? 'Edit post' : 'Add new post'}}</h2>
                     <div class="form-group row">
                         <label for="title" class="col-4 col-form-label">Title</label>
                         <div class="col-8">
@@ -24,6 +25,7 @@
                             <button name="button" type="reset" class="btn btn-danger">Reset form</button>
                         </div>
                     </div>
+                    
                 </form>
             </div>
         </div>
@@ -63,6 +65,7 @@
         }
     }
 </script>
+
 
 <style scoped>
 </style>

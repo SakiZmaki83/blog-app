@@ -17,8 +17,12 @@
                 <td>{{ post.title}}</td>
                 <td>{{ post.text}}</td>
                 <td>{{ post.createdAt}}</td>
-                <td><router-link class="btn btn-primary" :to="{name: 'single-post', params: {id: post.id}}">View Post</router-link></td>
-              
+                <td>
+                <router-link class="btn btn-primary" :to="{name: 'single-post', params: {id: post.id}}">View Post</router-link>
+                </td>
+                <td>
+                <router-link type="button" class="btn btn-primary" :to="{ name:'edit-post', params:{id:post.id}}">Edit post</router-link>
+                </td>
             </tr>
             </tbody>
         </table>

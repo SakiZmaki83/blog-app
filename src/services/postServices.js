@@ -14,6 +14,11 @@ export default class postServices {
 
     }
 
+    get(id) {
+        return axios.get(`posts/${id}`)
+
+    }
+
    
 
 

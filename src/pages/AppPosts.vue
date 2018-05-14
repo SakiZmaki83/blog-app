@@ -1,21 +1,56 @@
 <template>
-  <div class="container">
-      <ul class="list-group" v-for="(post, key) in posts" :key="key">
-    
-        <li class="list-group-item"><h3>{{ post.title }}</h3></li>
-       
-      </ul>
-  </div>
+    <div>
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Text</th>
+                <th scope="col">CreatedAt</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr v-for="(post,key) in posts" :key='key'>
+                <th scope="row">{{post.id}}</th>
+                <td>{{ post.title}}</td>
+                <td>{{ post.text}}</td>
+                <td>{{ post.createdAt}}</td>
+              
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
 </template>
 
+
 <script>
-import {postService} from '../service/PostService'
-export default {
-    data(){
-        return{
-            posts: []
+    import {postServ} from "../services/postServices";
+    export default {
+        name: "AppPosts",
+        created() {
+            this.getAll()
+        },
+        data() {
+            return {
+                posts: []
+            }
+        },
+        
+        methods: {
+            getAll() {
+                postServ.getAll()
+                    .then((response) => {
+                        
+                        this.posts = response.data
+                    });
+            },
+           
         }
-    },
- 
-}
+    }
 </script>
+
+<style scoped>
+</style>

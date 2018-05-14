@@ -18,7 +18,12 @@ export default class postServices {
         return axios.get(`posts/${id}`)
 
     }
+    add(value){
 
+
+        return axios.post('posts',value)
+
+    }
    
 
 

@@ -21,13 +21,17 @@ export default class postServices {
     add(post){
 
 
-        return axios.post('posts',value)
+        return axios.post('posts',post)
 
     }
 
     edit(id, post)
     {
         return axios.put(`posts/${id}`, post)
+    }
+    delete(id)
+    {
+        return axios.delete(`posts/${id}`)
     }
 
    

@@ -23,6 +23,9 @@
                 <td>
                 <router-link type="button" class="btn btn-primary" :to="{ name:'edit-post', params:{id:post.id}}">Edit post</router-link>
                 </td>
+                <td>
+                 <button name="button" type="button" @click="deletePost(post.id)" class="btn btn-danger">delete</button>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -52,6 +55,10 @@
                         this.posts = response.data
                     });
             },
+             deletePost(id){
+          postServ.delete(id)
+          this.posts = this.posts.filter(post => post.id !== id)
+      }
            
         }
     }
